@@ -8,7 +8,6 @@ use Doctrine\ORM\EntityRepository;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-// Des test ? C'est en production non ?
 final class PostControllerTest extends WebTestCase
 {
     private KernelBrowser $client;

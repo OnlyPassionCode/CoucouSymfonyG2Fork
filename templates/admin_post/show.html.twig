@@ -1,4 +1,4 @@
-{% extends 'coucou/template.back.html.twig' %}
+{% extends 'layouts/template.back.html.twig' %}
 
 {% block title %}Post{% endblock %}
 
@@ -34,9 +34,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_post_index') }}">back to list 🍎</a>
+    <a href="{{ path('app_admin_post_index') }}">back to list</a>
 
-    <a href="{{ path('app_admin_post_edit', {'id': post.id}) }}">edit ✎</a>
+    <a href="{{ path('app_admin_post_edit', {'id': post.id}) }}">edit</a>
 
     {{ include('admin_post/_delete_form.html.twig') }}
 {% endblock %}

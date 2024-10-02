@@ -13,13 +13,9 @@ class Post
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column(
-        # on veut que l'ID soit 'unsigned'
-        options:
-        [
-            'unsigned' => true,
-        ]
-    )]
+    #[ORM\Column(options: [
+        "unsigned" => true,
+    ])]
     private ?int $id = null;
 
     #[ORM\Column(length: 160)]
@@ -30,17 +26,13 @@ class Post
 
     #[ORM\Column(
         type: Types::DATETIME_MUTABLE,
-        # valeur par défaut CURRENT_TIMESTAMP
         options: [
-            'default' => 'CURRENT_TIMESTAMP',
+            "default" => "CURRENT_TIMESTAMP"
         ]
     )]
     private ?\DateTimeInterface $postDateCreated = null;
 
-    #[ORM\Column(
-        # il peut être null
-        type: Types::DATETIME_MUTABLE,
-        nullable: true)]
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $postDatePublished = null;
 
     #[ORM\Column]
@@ -55,7 +47,7 @@ class Post
     /**
      * @var Collection<int, Tag>
      */
-    #[ORM\ManyToMany(targetEntity: Tag::class, inversedBy: 'posts', cascade: ['persist'])]
+    #[ORM\ManyToMany(targetEntity: Tag::class, inversedBy: 'posts', cascade:["persist"])]
     private Collection $tags;
 
     /**

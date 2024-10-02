@@ -1,9 +1,49 @@
-{% extends 'coucou/template.front.html.twig' %}
+{% extends 'layouts/template.front.html.twig' %}
 
-{% block title %}{{ parent() }} | {{ title }}{% endblock %}
+{% block title %}
+	{{ parent() }} | {{ title }}
+{% endblock %}
 
+{% block nav %}{{ parent() }}{% endblock %}
 {% block lead %}Ceci est la section {{ title }} - {{ section.sectionDescription }}{% endblock %}
-
 {% block main %}
-
+	<div class="container">
+		{% if app.user %}
+			<h3>INFOS USER :</h3>
+			<p>Username: {{ app.user.username }}</p>
+			<h4>SESSION INFOS :</h4>
+			{% for session in app.session.all %}
+				<pre>{{ session }}</pre>
+			{% endfor %}
+		{% endif %}
+		{% if app.debug %}
+			<h3>DEBUG :</h3>
+			<p>Request method: {{ app.request.method }}</p>
+			<p>Application Environment: {{ app.environment }}</p>
+		{% endif %}
+		{% for post in section.posts -%}
+			{% set nbSection = post.sections | length %}
+			<article class="post">
+				<h3>{{ post.postTitle }}</h3>
+				<p>
+					Ecrit par {{ post.user.username }} le {{ post.postDateCreated|date("d/m/Y \à H:i") }}
+				</p>
+				<p>{{ post.postDescription }}</p>
+				<p>Tags: <strong>
+				{% for tag in post.tags -%}
+					{{ " " ~ tag.tagName ~ (not loop.last ? " | " : "")}}
+				{%- endfor %}</strong>
+				</p>
+				<p>
+					Section{{ nbSection > 1 ? 's' : '' }} ({{ nbSection }})
+					{%- for section in post.sections %}
+						<a href="{{ path('section', {id: section.id}) }}">{{ section.sectionTitle }}</a>
+						{% if not loop.last %}|{% else %}<hr>{% endif %}
+					{%- endfor -%}
+				</p>
+			</article>
+		{%- else -%}
+			<p>Aucun post trouvé dans cette section.</p>
+		{%- endfor -%}
+	</div>
 {% endblock %}

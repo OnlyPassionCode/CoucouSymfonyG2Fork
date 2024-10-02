@@ -12,19 +12,12 @@ class Tag
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column(
-        options:
-        [
-            'unsigned' => true,
-        ]
-    )]
+    #[ORM\Column(options: [
+        'unsigned' => true,
+    ])]
     private ?int $id = null;
 
-    #[ORM\Column(
-        # ce sera un champ unique
-        length: 60,
-        unique: true,
-    )]
+    #[ORM\Column(length: 60, unique: true)]
     private ?string $tagName = null;
 
     /**

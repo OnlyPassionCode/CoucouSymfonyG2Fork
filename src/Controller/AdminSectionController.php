@@ -11,8 +11,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-// (C)afé, (R)écupération après avoir cassé le code, (U)ltrarapide prise de panique, (D)ebug toute la nuit !
-// (C)'est (R)elou, (U)nique dans sa capacité à (D)éclencher des bugs incompréhensibles. 😑
 #[Route('/admin/section')]
 final class AdminSectionController extends AbstractController
 {
@@ -21,7 +19,7 @@ final class AdminSectionController extends AbstractController
     {
         return $this->render('admin_section/index.html.twig', [
             'sections' => $sectionRepository->findAll(),
-            'title' => 'Liste des sections',
+            'title' => 'Liste des sections'
         ]);
     }
 
@@ -42,7 +40,7 @@ final class AdminSectionController extends AbstractController
         return $this->render('admin_section/new.html.twig', [
             'section' => $section,
             'form' => $form,
-            'title' => 'Nouvelle section',
+            'title' => 'Nouvelle section'
         ]);
     }
 
@@ -51,7 +49,7 @@ final class AdminSectionController extends AbstractController
     {
         return $this->render('admin_section/show.html.twig', [
             'section' => $section,
-            'title' => $section->getSectionTitle(),
+            'title' => $section->getSectionTitle()
         ]);
     }
 
@@ -70,7 +68,7 @@ final class AdminSectionController extends AbstractController
         return $this->render('admin_section/edit.html.twig', [
             'section' => $section,
             'form' => $form,
-            'title' => 'Modifier '.$section->getSectionTitle(),
+            'title' => 'Modifier '.$section->getSectionTitle()
         ]);
     }
 

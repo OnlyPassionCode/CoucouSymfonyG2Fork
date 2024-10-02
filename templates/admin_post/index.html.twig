@@ -1,4 +1,4 @@
-{% extends 'coucou/template.back.html.twig' %}
+{% extends 'layouts/template.back.html.twig' %}
 
 {% block title %}Post index{% endblock %}
 
@@ -27,13 +27,13 @@
                 <td>{{ post.postDatePublished ? post.postDatePublished|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ post.postPublished ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('app_admin_post_show', {'id': post.id}) }}">show 😎</a>
-                    <a href="{{ path('app_admin_post_edit', {'id': post.id}) }}">edit ✎</a>
+                    <a href="{{ path('app_admin_post_show', {'id': post.id}) }}">show</a>
+                    <a href="{{ path('app_admin_post_edit', {'id': post.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found 😭</td>
+                <td colspan="7">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

@@ -11,8 +11,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-// (C)afé, (R)écupération après avoir cassé le code, (U)ltrarapide prise de panique, (D)ebug toute la nuit !
-// (C)'est (R)elou, (U)nique dans sa capacité à (D)éclencher des bugs incompréhensibles. 😑
 #[Route('/admin/tag')]
 final class AdminTagController extends AbstractController
 {
@@ -21,7 +19,7 @@ final class AdminTagController extends AbstractController
     {
         return $this->render('admin_tag/index.html.twig', [
             'tags' => $tagRepository->findAll(),
-            'title' => 'Tags'
+            'title'=>""
         ]);
     }
 
@@ -42,7 +40,7 @@ final class AdminTagController extends AbstractController
         return $this->render('admin_tag/new.html.twig', [
             'tag' => $tag,
             'form' => $form,
-            'title' => 'New Tag',
+            'title'=>""
         ]);
     }
 
@@ -51,6 +49,7 @@ final class AdminTagController extends AbstractController
     {
         return $this->render('admin_tag/show.html.twig', [
             'tag' => $tag,
+            'title'=>""
         ]);
     }
 
@@ -69,7 +68,7 @@ final class AdminTagController extends AbstractController
         return $this->render('admin_tag/edit.html.twig', [
             'tag' => $tag,
             'form' => $form,
-            'title' => 'Edit Tag',
+            'title'=>""
         ]);
     }
 

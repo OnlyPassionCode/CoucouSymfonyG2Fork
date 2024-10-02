@@ -1,4 +1,4 @@
-{% extends 'coucou/template.back.html.twig' %}
+{% extends 'layouts/template.back.html.twig' %}
 
 {% block title %}New Tag{% endblock %}
 
@@ -7,5 +7,5 @@
 
     {{ include('admin_tag/_form.html.twig') }}
 
-    <a href="{{ path('app_admin_tag_index') }}">back to list 🍎</a>
+    <a href="{{ path('app_admin_tag_index') }}">back to list</a>
 {% endblock %}

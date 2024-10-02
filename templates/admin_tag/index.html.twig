@@ -1,4 +1,4 @@
-{% extends 'coucou/template.back.html.twig' %}
+{% extends 'layouts/template.back.html.twig' %}
 
 {% block title %}Tag index{% endblock %}
 
@@ -19,13 +19,13 @@
                 <td>{{ tag.id }}</td>
                 <td>{{ tag.tagName }}</td>
                 <td>
-                    <a href="{{ path('app_admin_tag_show', {'id': tag.id}) }}">show 😎</a>
-                    <a href="{{ path('app_admin_tag_edit', {'id': tag.id}) }}">edit ✎</a>
+                    <a href="{{ path('app_admin_tag_show', {'id': tag.id}) }}">show</a>
+                    <a href="{{ path('app_admin_tag_edit', {'id': tag.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found 😭</td>
+                <td colspan="3">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

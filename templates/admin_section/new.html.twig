@@ -1,4 +1,4 @@
-{% extends 'coucou/template.back.html.twig' %}
+{% extends 'layouts/template.back.html.twig' %}
 
 {% block title %}New Section{% endblock %}
 
@@ -7,5 +7,5 @@
 
     {{ include('admin_section/_form.html.twig') }}
 
-    <a href="{{ path('app_admin_section_index') }}">back to list 🍎</a>
+    <a href="{{ path('app_admin_section_index') }}">back to list</a>
 {% endblock %}

@@ -11,12 +11,9 @@ class Comment
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column(
-        options:
-            [
-                'unsigned' => true,
-            ]
-    )]
+    #[ORM\Column(options: [
+        'unsigned' => true,
+    ])]
     private ?int $id = null;
 
     #[ORM\Column(length: 2500)]
@@ -25,7 +22,7 @@ class Comment
     #[ORM\Column(
         type: Types::DATETIME_MUTABLE,
         options: [
-            'default' => 'CURRENT_TIMESTAMP',
+            "default" => "CURRENT_TIMESTAMP"
         ]
     )]
     private ?\DateTimeInterface $commentDateCreated = null;
@@ -38,12 +35,10 @@ class Comment
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
-    #[ORM\Column(
-        options: [
-            'default' => false,
-        ]
-    )]
-    private ?bool $commentPublished = null;
+    #[ORM\Column(options: [
+        'default' => false,
+    ])]
+    private bool $commentPublished = false;
 
     public function getId(): ?int
     {
@@ -98,7 +93,7 @@ class Comment
         return $this;
     }
 
-    public function isCommentPublished(): ?bool
+    public function isCommentPublished(): bool
     {
         return $this->commentPublished;
     }

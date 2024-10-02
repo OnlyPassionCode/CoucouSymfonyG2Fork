@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}CoucouSymfonyG2{% endblock %}</title>
-        {% block stylesheets %}
-        {% endblock %}
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}CoucouSymfonyG2{% endblock %}
+		</title>
+		{% block stylesheets %}{% endblock %}
 
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
-    </head>
-    <body>
-        {# utilisation de content pour nos templates #}
-        {% block content %}{% endblock %}
-        {# On laisse body pour les fichiers générés par symfony #}
-        {% block body %}{% endblock %}
-
-    </body>
+		{% block javascripts %}
+			{% block importmap %}
+				{{ importmap('app') }}
+			{% endblock %}
+		{% endblock %}
+	</head>
+	<body>
+		{# Utilisation de content pour nos templates #}
+		{% block content %}{% endblock %}
+		{# On laisse body pour les fichiers générés par symfony #}
+		{% block body %}{% endblock %}
+	</body>
 </html>

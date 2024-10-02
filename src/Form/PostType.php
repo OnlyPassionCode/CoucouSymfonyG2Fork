@@ -8,8 +8,8 @@ use App\Entity\Tag;
 use App\Entity\User;
 use App\Repository\TagRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\Form\FormEvent;
@@ -33,8 +33,6 @@ class PostType extends AbstractType
             ->add('postDescription')
             ->add('postDateCreated', null, [
                 'widget' => 'single_text',
-                'empty_data' => date('Y-m-d H:i:s'),
-                'required' => false,
             ])
             ->add('postDatePublished', null, [
                 'widget' => 'single_text',
@@ -42,10 +40,8 @@ class PostType extends AbstractType
             ->add('postPublished')
             ->add('sections', EntityType::class, [
                 'class' => Section::class,
-                'choice_label' => 'section_title',
+                'choice_label' => 'id',
                 'multiple' => true,
-                'expanded' => true,
-                'required' => false,
             ])
             ->add('tags', TagAutocompleteField::class, options: [
                 'required' => false,
@@ -55,7 +51,7 @@ class PostType extends AbstractType
             ])
             ->add('user', EntityType::class, [
                 'class' => User::class,
-                'choice_label' => 'username',
+                'choice_label' => 'id',
             ])
             ->addEventListener(FormEvents::PRE_SUBMIT, $this->preSubmit(...))
             ->addEventListener(FormEvents::SUBMIT, $this->submit(...));

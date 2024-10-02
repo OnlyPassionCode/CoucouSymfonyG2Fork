@@ -1,4 +1,4 @@
-{% extends 'coucou/template.back.html.twig' %}
+{% extends 'layouts/template.back.html.twig' %}
 
 {% block title %}Section index{% endblock %}
 
@@ -21,13 +21,13 @@
                 <td>{{ section.sectionTitle }}</td>
                 <td>{{ section.sectionDescription }}</td>
                 <td>
-                    <a href="{{ path('app_admin_section_show', {'id': section.id}) }}">show 😎</a>
-                    <a href="{{ path('app_admin_section_edit', {'id': section.id}) }}">edit ✎</a>
+                    <a href="{{ path('app_admin_section_show', {'id': section.id}) }}">show</a>
+                    <a href="{{ path('app_admin_section_edit', {'id': section.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found 😭</td>
+                <td colspan="4">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

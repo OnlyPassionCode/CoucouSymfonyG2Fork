@@ -1,4 +1,4 @@
-{% extends 'coucou/template.back.html.twig' %}
+{% extends 'layouts/template.back.html.twig' %}
 
 {% block title %}Edit Section{% endblock %}
 
@@ -7,7 +7,7 @@
 
     {{ include('admin_section/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('app_admin_section_index') }}">back to list 🍎</a>
+    <a href="{{ path('app_admin_section_index') }}">back to list</a>
 
     {{ include('admin_section/_delete_form.html.twig') }}
 {% endblock %}
